@@ -1,11 +1,13 @@
 %% exam_paper_template.tex
 %% by Lawrence Ong
 %% Created: 13/09/2019
-%% Modified: 16/10/2019
+%% Modified: 27/09/2020
 %% 
 %% This is a template for final examination papers
 %% created according to the specifications required
 %% by the University of Newcastle
+%%
+%% NOTE: The cover page is to be manually inserted.
 
 
 \documentclass[a4paper,12pt]{article}
@@ -15,7 +17,7 @@
 \newcommand{\semester}{2} % semester
 \newcommand{\examyear}{2019} % year
 \newcommand{\modulecode}{ELEC4550} % subject code
-\newcommand{\subjectname}{Wireless Communication} % subject name
+\newcommand{\subjectname}{Wireless Communications} % subject name
 % ==========
 
 \usepackage{helvet}
@@ -52,7 +54,6 @@
 
 \setlength\parindent{0pt}
 
-\clearpage
 % Start counting from page 2. Cover page to be manually inserted.
 \setcounter{page}{2}
 
@@ -65,10 +66,9 @@
 % Note: The first argument in the "question" environment
 % is the total mark for that question
 % ===============
-% %Make sure that there is no space before the % sign below
+% %%% NOTE: Make sure that there is no space before the % sign below
 % \begin{question}[10]\label{q2}%
-%   % Include \vspace{-1.5\topsep} if there is no text preceeding enumerate
-%   \vspace*{-1.5\topsep}
+%   \vspace*{-1.5\topsep}  %include this iff the question starts with enumerate
 %   \begin{enumerate}[(a)]
 %   \item XXX
 %     \begin{enumerate}[(i)]
