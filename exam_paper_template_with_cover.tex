@@ -1,0 +1,268 @@
+%% exam_paper_template_with_cover.tex
+%% Author:   Lawrence Ong
+%% Created:  23/08/2020
+%% Modified: 29/06/2021
+%% 
+%% This is a template for final examination papers
+%% created according to the specifications required
+%% by the University of Newcastle
+%% 
+%% NOTE: This version includes the cover page.
+
+
+
+\documentclass[a4paper,12pt]{article}
+
+% ==========
+% Insert semester, year, and module name here
+\newcommand{\semester}{2} % semester
+\newcommand{\examyear}{2020} % year
+\newcommand{\subjectname}{Wireless Communications} % subject name
+\newcommand{\quiznumber}{1} % quiz number
+\newcommand{\modulecode}{ELEC4550/ELEC6550} % subject code
+% ==========
+
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+
+\usepackage[T1]{fontenc}
+\usepackage{amssymb,amsmath}
+\usepackage{bm}
+\usepackage{lastpage}
+\usepackage{color}
+
+\usepackage{graphicx}
+\graphicspath{{../figures/}}
+
+\usepackage[shortlabels]{enumitem}
+\usepackage{setspace}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhead[L]{\fontsize{10}{0} \selectfont Semester~\semester,~\examyear}
+\fancyhead[R]{\fontsize{10}{0} \selectfont \hfill \modulecode~\subjectname}
+\fancyfoot[C]{\fontsize{10}{12} \selectfont Page \thepage\ of \pageref{LastPage}}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\setlength{\voffset}{-1.2cm} % -1in + 1.25cm = -1.29cm
+\setlength{\topmargin}{0in}
+\setlength{\headheight}{8.85pt}
+\setlength{\headsep}{1.12cm}
+\setlength{\oddsidemargin}{0cm}
+\setlength{\hoffset}{0.65cm} %-1in + 3.25cm = 0.71cm
+\setlength{\textwidth}{15.25cm}
+\setlength{\textheight}{24.5cm}
+\setlength{\footskip}{1.12cm}
+\fancyheadoffset[LO,RE]{1.5cm} %move start of header to the left
+\fancyheadoffset[RO,LE]{1cm} %move end of header to the right
+
+\setlength\parindent{0pt}
+
+\newcounter{question}[section]
+\newenvironment{question}[2][]
+{\refstepcounter{question} %\par\medskip
+  \textbf{Question~\thequestion. \hfill (#1 marks)}\newline #2}{\bigskip\bigskip\bigskip}
+
+% Example of usage
+% Note: The first argument in the "question" environment
+% is the total mark for that question
+% ===============
+% %% Make sure that there is no space before the % sign below
+% \begin{question}[10]\label{q2}%
+%   %   Include \vspace{-1.5\topsep} if there is no text preceeding enumerate
+%   \vspace*{-1.5\topsep}
+%   \begin{enumerate}[(a)]
+%   \item XXX
+%     \begin{enumerate}[(i)]
+%     \item Question~\ref{q2}
+%     \end{enumerate}
+%   \item YYY
+%   \end{enumerate}
+% \end{question}
+%
+% Use \begin{itemize}[\large $\square$] for multiple choice boxes
+% ===============
+
+
+\begin{document}
+
+
+% ========== COVER PAGE ==========
+
+
+\begin{doublespace}
+
+  \vspace*{-10mm}
+
+
+  \begin{minipage}[t]{0.23\linewidth}
+    
+    \footnotesize
+
+    Desk Number:
+
+    \vspace{0.5mm}
+
+    Student Number:
+
+    \vspace{0.5mm}
+
+    Student Name: 
+
+    {\ }
+  \end{minipage}  \begin{minipage}[t]{0.4\linewidth}
+    
+    \footnotesize
+
+    \rule{2cm}{0.2mm}
+
+    \vspace{0.5mm}
+
+    \rule{5cm}{0.2mm}
+
+    \vspace{0.5mm}
+
+    \rule{5cm}{0.2mm}
+
+    {\ }
+  \end{minipage}\hfill
+  \begin{minipage}[b]{3.78cm}
+    \hspace*{10mm}\includegraphics[height=3.78cm]{uon_logo_black_square.pdf}
+    \vspace*{-3.78cm}
+  \end{minipage}
+
+
+  \vspace{20mm}
+
+
+
+  \begin{center}
+    \textbf{\large School of Electrical Engineering \& Computing}
+
+    \vspace{1mm}
+
+    \textbf{\large EXAMINATION}
+
+    
+    \textnormal{\footnotesize Semester~\semester,~\examyear}
+
+    
+    \textbf{\large \modulecode~\subjectname}
+
+
+    \textit{\footnotesize This paper is for CALLAGHAN students.}
+  \end{center}
+
+  {\footnotesize
+
+    \begin{minipage}[t]{0.33\linewidth}
+      
+      \footnotesize
+
+      Examination Duration:
+
+      Reading Time:
+
+    \end{minipage}
+    \begin{minipage}[t]{0.3\linewidth}
+      
+      \footnotesize
+
+      180 minutes
+
+      10 minutes
+
+    \end{minipage}\\
+
+    \vspace{-1mm}
+
+    This exam has \underline{NINE~(9)} questions
+    
+    Total marks: 100 marks
+    
+    \textbf{Exam Conditions:}
+
+    This is a FORMAL examination
+
+    This is a RESTRICTED OPEN book examination
+
+    Notes permitted - Refer Materials Permitted
+
+    Calculators Permitted - Refer Materials Permitted
+
+    \textbf{Materials Permitted In The Exam Venue:}
+
+    1 A4 double sided sheet of handwritten or typed notes (Memory Aid sheet)
+
+    Non programmable scientific calculators are permitted
+
+    \textbf{Materials To Be Supplied To Students:}
+
+    1 $\times$ 4 Page Answer Booklet
+
+    1 $\times$ 12 Page Answer Booklet
+
+    
+    \textbf{Special Instructions:}
+    
+    Answer ALL questions.
+    
+    You must show workings in your answers.
+
+    {\ }}
+\end{doublespace}
+
+% ========== END COVER PAGE ==========
+
+\newpage
+
+% ========== CONTENT STARTS HERE ==========
+
+% Make sure that there is no space before the % sign below
+\begin{question}[10]\label{q1}% 
+  XXX
+
+  YYYy
+  
+  \begin{itemize}[\large $\square$]
+  \item XXX
+    \begin{enumerate}[(i)]
+    \item Question~\ref{q1}
+    \end{enumerate}
+  \end{itemize}
+\end{question}
+
+\begin{question}[10]\label{q2}%
+  % Include \vspace{-1.5\topsep} if there is no parapgraph preceeding enumerate
+  \vspace*{-1.5\topsep}
+  \begin{enumerate}[(a)]
+  \item XXX
+    \begin{enumerate}[(i)]
+    \item Question~\ref{q2}
+    \end{enumerate}
+  \item YYY
+  \end{enumerate}
+\end{question}
+
+
+\newpage
+
+
+\begin{question}[20]\label{q3}%
+  XXX
+  \begin{enumerate}[(a)]
+  \item XXX
+    \begin{enumerate}[(i)]
+    \item Question~\ref{q3}
+    \end{enumerate}
+  \end{enumerate}
+\end{question}
+
+
+\bigskip
+
+\begin{center}
+  \textbf{END OF EXAMINATION}
+\end{center}
+
+\end{document}
