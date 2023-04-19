@@ -1,7 +1,7 @@
 %% exam_paper_template_with_cover.tex
 %% Author:   Lawrence Ong
 %% Created:  23/08/2020
-%% Modified: 29/06/2021
+%% Modified: 19/04/2023
 %% 
 %% This is a template for final examination papers
 %% created according to the specifications required
@@ -9,30 +9,42 @@
 %% 
 %% NOTE: This version includes the cover page.
 
-
+\newif\ifsoln
+%\solntrue   %%% uncomment to turn on solutions | comment to turn off solution
 
 \documentclass[a4paper,12pt]{article}
 
 % ==========
-% Insert semester, year, and module name here
-\newcommand{\semester}{2} % semester
-\newcommand{\examyear}{2020} % year
-\newcommand{\subjectname}{Wireless Communications} % subject name
+% Insert semester, year, module name, and other information here
+\newcommand{\semester}{1} % semester
+\newcommand{\examyear}{2023} % year
+\newcommand{\subjectname}{Digital and Computer Electronics 2} % subject name
 \newcommand{\quiznumber}{1} % quiz number
-\newcommand{\modulecode}{ELEC4550/ELEC6550} % subject code
+\newcommand{\modulecode}{ELEC3730} % subject code
+\newcommand{\school}{School of Engineering} % school
+\newcommand{\totalqn}{NINE~(9)} % total number of questions
+\newcommand{\totalmarks}{100} % total marks
 % ==========
 
-\usepackage{helvet}
+% Use Helvetica for everything
 \renewcommand{\familydefault}{\sfdefault}
+\usepackage[scaled=1]{helvet}
+\usepackage[helvet]{sfmath}
+\everymath={\sf}
 
 \usepackage[T1]{fontenc}
 \usepackage{amssymb,amsmath}
 \usepackage{bm}
 \usepackage{lastpage}
 \usepackage{color}
+\usepackage{verbatim}
+
+% Change the section title font size
+\usepackage[sf,bf,compact]{titlesec}
+\titleformat*{\section}{\sffamily \bfseries \normalsize}
 
 \usepackage{graphicx}
-\graphicspath{{../figures/}}
+\graphicspath{{figures/}{./}}
 
 \usepackage[shortlabels]{enumitem}
 \usepackage{setspace}
@@ -63,6 +75,22 @@
 {\refstepcounter{question} %\par\medskip
   \textbf{Question~\thequestion. \hfill (#1 marks)}\newline #2}{\bigskip\bigskip\bigskip}
 
+% Used for the solution
+\usepackage{boxedminipage}
+%\setlength{\fboxrule}{2pt}
+\setlength{\fboxsep}{4mm}
+
+\newcommand\solution[1]{\ifsoln \begin{mysol} {#1} \end{mysol} \else \fi}
+
+\newenvironment{mysol}[1][]%
+{\color{red} %
+\begin{boxedminipage}[t]{\textwidth} %
+\color{black}#1} %
+{\end{boxedminipage} \medskip}
+
+\newcommand\myskip{\bigskip \bigskip}
+
+
 % Example of usage
 % Note: The first argument in the "question" environment
 % is the total mark for that question
@@ -81,6 +109,15 @@
 % \end{question}
 %
 % Use \begin{itemize}[\large $\square$] for multiple choice boxes
+%
+% Use \solution{} for solutions
+%
+% Code:
+% \begin{boxedminipage}[t]{\textwidth}
+% \begin{verbatim}
+% printf("hello\n");
+% \end{verbatim}
+% \end{boxedminipage}
 % ===============
 
 
@@ -137,7 +174,7 @@
 
 
   \begin{center}
-    \textbf{\large School of Electrical Engineering \& Computing}
+    \textbf{\large \school}
 
     \vspace{1mm}
 
@@ -168,7 +205,7 @@
       
       \footnotesize
 
-      180 minutes
+      120 minutes
 
       10 minutes
 
@@ -176,33 +213,32 @@
 
     \vspace{-1mm}
 
-    This exam has \underline{NINE~(9)} questions
+    This exam has \underline{\totalqn} questions
     
-    Total marks: 100 marks
-    
-    \textbf{Exam Conditions:}
+    Total marks: \totalmarks~marks
 
-    This is a FORMAL examination
+
+    \textbf{Exam Conditions:}
 
     This is a RESTRICTED OPEN book examination
 
-    Notes permitted - Refer Materials Permitted
+    Notes Permitted
 
-    Calculators Permitted - Refer Materials Permitted
+    Non Programmable Calculators Permitted
+
 
     \textbf{Materials Permitted In The Exam Venue:}
 
     1 A4 double sided sheet of handwritten or typed notes (Memory Aid sheet)
 
-    Non programmable scientific calculators are permitted
+    Non programmable calculators are permitted
+
 
     \textbf{Materials To Be Supplied To Students:}
 
-    1 $\times$ 4 Page Answer Booklet
-
     1 $\times$ 12 Page Answer Booklet
 
-    
+
     \textbf{Special Instructions:}
     
     Answer ALL questions.
@@ -219,18 +255,25 @@
 % ========== CONTENT STARTS HERE ==========
 
 % Make sure that there is no space before the % sign below
-\begin{question}[10]\label{q1}% 
-  XXX
+\begin{question}[2]\label{rtos}%
+  Which of the following statements is/are true? Select ALL correct answers.
+  \begin{enumerate}[A.]
+  \item Blah Blah
+  \item\label{rtos-correct} Blah Blah
+  \item Blah Blah
+  \item Blah Blah
+  \end{enumerate}
 
-  YYYy
+  \myskip
+
+  Answer: \rule{3.5cm}{0.2mm}
   
-  \begin{itemize}[\large $\square$]
-  \item XXX
-    \begin{enumerate}[(i)]
-    \item Question~\ref{q1}
-    \end{enumerate}
-  \end{itemize}
 \end{question}
+
+\solution{
+  The answer is \ref{rtos-correct}\\
+  2 marks for the correct answer. $-2$ marks for each wrong answer.
+}
 
 \begin{question}[10]\label{q2}%
   % Include \vspace{-1.5\topsep} if there is no parapgraph preceeding enumerate
@@ -266,3 +309,8 @@
 \end{center}
 
 \end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
