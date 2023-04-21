@@ -29,7 +29,7 @@
 % Use Helvetica for everything
 \renewcommand{\familydefault}{\sfdefault}
 \usepackage[scaled]{helvet}
-%\usepackage{couriers} % Don't use couriers font for ttfamily. It's too wide.
+\usepackage{couriers} % Use couriers font for ttfamily. It's fixed wideth and is too wide. But better for displaying ~ and ^.
 \usepackage[helvet]{sfmath}
 \everymath={\sf}
 
@@ -39,6 +39,7 @@
 \usepackage{lastpage}
 \usepackage{color}
 \usepackage{listings}
+%\usepackage{amssymb}
 
 % Change the section title font size
 \usepackage[sf,bf,compact]{titlesec}
@@ -83,13 +84,12 @@
 
 \newenvironment{mysol}[1][]%
 {\color{red} %
-\begin{boxedminipage}[t]{\textwidth} %
+\bigskip \begin{boxedminipage}[t]{\textwidth} %
 \color{black}#1} %
 {\end{boxedminipage} \medskip}
 
 \newcommand\solution[1]{\ifsoln \begin{mysol} {#1} \end{mysol} \else \fi}
-\newcommand\myskip{\bigskip \bigskip}
-\newcommand\answerfield{\myskip Answer: \rule{2.5cm}{0.2mm}}
+\newcommand\answerfield{\bigskip Answer: \rule{2.5cm}{0.2mm}}
 
 \lstset{
   basicstyle=\ttfamily,
@@ -277,6 +277,8 @@ void main () {
   \item Blah Blah
   \item Blah Blah
   \end{enumerate}
+
+  \answerfield
 
   \solution{
   The answer is \ref{rtos-correct}\\
