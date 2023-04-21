@@ -1,7 +1,7 @@
 %% exam_paper_template_with_cover.tex
 %% Author:   Lawrence Ong
 %% Created:  23/08/2020
-%% Modified: 19/04/2023
+%% Modified: 21/04/2023
 %% 
 %% This is a template for final examination papers
 %% created according to the specifications required
@@ -18,17 +18,18 @@
 % Insert semester, year, module name, and other information here
 \newcommand{\semester}{1} % semester
 \newcommand{\examyear}{2023} % year
-\newcommand{\subjectname}{Digital and Computer Electronics 2} % subject name
+\newcommand{\subjectname}{Subject} % subject name
 \newcommand{\quiznumber}{1} % quiz number
-\newcommand{\modulecode}{ELEC3730} % subject code
+\newcommand{\modulecode}{ELECXXXX} % subject code
 \newcommand{\school}{School of Engineering} % school
-\newcommand{\totalqn}{NINE~(9)} % total number of questions
+\newcommand{\totalqn}{TEN~(10)} % total number of questions
 \newcommand{\totalmarks}{100} % total marks
 % ==========
 
 % Use Helvetica for everything
 \renewcommand{\familydefault}{\sfdefault}
-\usepackage[scaled=1]{helvet}
+\usepackage[scaled]{helvet}
+%\usepackage{couriers} % Don't use couriers font for ttfamily. It's too wide.
 \usepackage[helvet]{sfmath}
 \everymath={\sf}
 
@@ -80,15 +81,15 @@
 \setlength{\fboxrule}{2pt}
 \setlength{\fboxsep}{4mm}
 
-\newcommand\solution[1]{\ifsoln \begin{mysol} {#1} \end{mysol} \else \fi}
-
 \newenvironment{mysol}[1][]%
 {\color{red} %
 \begin{boxedminipage}[t]{\textwidth} %
 \color{black}#1} %
 {\end{boxedminipage} \medskip}
 
+\newcommand\solution[1]{\ifsoln \begin{mysol} {#1} \end{mysol} \else \fi}
 \newcommand\myskip{\bigskip \bigskip}
+\newcommand\answerfield{\myskip Answer: \rule{2.5cm}{0.2mm}}
 
 \lstset{
   basicstyle=\ttfamily,
@@ -264,29 +265,27 @@
 % Make sure that there is no space before the % sign below
 \begin{question}[2]\label{rtos}%
   Which of the following statements is/are true? Select ALL correct answers.
+  \begin{lstlisting}
+void main () {
+  printf("Hello\n");
+}
+\end{lstlisting}
+
   \begin{enumerate}[A.]
-  \item Blah Blah
+  \item \lstinline{printf("Hello\n");}
   \item\label{rtos-correct} Blah Blah
   \item Blah Blah
   \item Blah Blah
   \end{enumerate}
 
-  \begin{lstlisting}
-printf("Hello\n");
-\end{lstlisting}
-
-\lstinline{printf("Hello\n");}
-
-  \myskip
-
-  Answer: \rule{3.5cm}{0.2mm}
-  
-\end{question}
-
-\solution{
+  \solution{
   The answer is \ref{rtos-correct}\\
   2 marks for the correct answer. $-2$ marks for each wrong answer.
 }
+  
+\end{question}
+
+
 
 \begin{question}[10]\label{q2}%
   % Include \vspace{-1.5\topsep} if there is no parapgraph preceeding enumerate
@@ -298,6 +297,8 @@ printf("Hello\n");
     \end{enumerate}
   \item YYY
   \end{enumerate}
+
+  \answerfield
 \end{question}
 
 
@@ -305,13 +306,16 @@ printf("Hello\n");
 
 
 \begin{question}[20]\label{q3}%
-  XXX
+  XXX \lstinline{scanf()}.
   \begin{enumerate}[(a)]
   \item XXX
     \begin{enumerate}[(i)]
     \item Question~\ref{q3}
     \end{enumerate}
   \end{enumerate}
+  \begin{lstlisting}
+    printf("Hello world\n");
+  \end{lstlisting}
 \end{question}
 
 
@@ -320,6 +324,14 @@ printf("Hello\n");
 \begin{center}
   \textbf{END OF EXAMINATION}
 \end{center}
+
+\newpage
+
+\appendix
+
+\textbf{APPENDIX}
+
+\section{Formulae}
 
 \end{document}
 
